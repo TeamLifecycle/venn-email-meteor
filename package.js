@@ -1,6 +1,6 @@
 Package.describe({
   name: 'venn:venn-email',
-  version: '0.0.1',
+  version: '0.0.2',
   summary: 'Venn Email Redundancy Package',
   git: 'https://github.com/VennHQ/venn-email-meteor.git',
   documentation: 'README.md'
