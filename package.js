@@ -12,6 +12,7 @@ Package.onUse(function(api) {
   api.versionsFrom('1.1.0.1');
   api.use(['meteorhacks:async']);
   api.addFiles('venn-email.js', 'server');
+  api.export('VennEmail');
 });
 
 Package.onTest(function(api) {

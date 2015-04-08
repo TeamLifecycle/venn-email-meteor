@@ -1,17 +1,19 @@
-vennEmail = Npm.require('venn-email')
+VennEmail = {}
 
+// TODO cleanup, this is kinda messy
 
-vennEmail.send2 = function(from, to, subject, msg) {
+vennEmailNpm = Npm.require('venn-email')
+vennEmailNpm.sendCopy = vennEmailNpm.send
+
+vennEmailNpm.send = function(from, to, subject, msg) {
 	var response = Async.runSync(function(done) {
-	  vennEmail.send(from, to, subject, msg, function(err, result) {
-	  	console.log("result!!!!", result)
+	  vennEmailNpm.sendCopy(from, to, subject, msg, function(err, result) {
 	  	done(err, result)
 	  })
 	});
 	return response.result;
 }
 
-
-vennEmail.initialize("6644bb87bcd7fceb2cd53436")
-var result2 = vennEmail.send2("from@email.com", "timmyg13@gmail.com", "sub88tgtg#6", "msg9917");
-console.log("result2", result2)
+VennEmail = vennEmailNpm;
+VennEmail.initialize = vennEmailNpm.initialize;
+VennEmail.send = vennEmailNpm.send;
